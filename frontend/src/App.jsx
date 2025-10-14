@@ -237,7 +237,6 @@ function App() {
 
       <div className="relative z-10 container mx-auto px-4 py-16 sm:py-24">
 
-        {/* --- HERO SECTION --- */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: -20 }}

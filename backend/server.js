@@ -10,7 +10,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// test route
 app.get("/", (req, res) => res.send("E-commerce Recommender API Running 🚀"));
 app.use("/api/recommend", recommendRouter);
 
