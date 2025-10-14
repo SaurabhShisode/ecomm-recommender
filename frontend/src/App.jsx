@@ -3,7 +3,7 @@ import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { BookOpen, Gem, Star, Search, Sparkles, Shirt, Cable, XCircle, ChevronDown, CheckCircle, AlertTriangle } from "lucide-react";
 
-// --- CUSTOM NOTIFICATION SYSTEM (Replacing react-toastify) ---
+
 const CustomNotification = ({ message, type, onClose }) => {
   if (!message) return null;
 
@@ -37,7 +37,7 @@ const CustomNotification = ({ message, type, onClose }) => {
     </motion.div>
   );
 };
-// --- END CUSTOM NOTIFICATION SYSTEM ---
+
 
 const CategoryIcon = ({ category }) => {
   switch (category?.toLowerCase()) {
@@ -76,7 +76,7 @@ const RecommendationCard = ({ rec, index }) => {
       </div>
 
       <p className="text-lg font-bold bg-clip-text bg-gradient-to-r from-emerald-300 to-sky-400 text-transparent mb-3 font-grotesk">
-        ₹{rec.price}
+        ₹{rec.price}/-
       </p>
       <p className="text-gray-400 italic text-sm font-poppins">{rec.explanation}</p>
     </motion.div>
@@ -112,7 +112,7 @@ const CustomKDropdown = ({ kValue, setKValue }) => {
         animate={isOpen ? "open" : "closed"}
         variants={dropdownVariants}
         style={{ overflow: 'hidden' }}
-        className="absolute top-full mt-4 w-full min-w-[120px] bg-gray-800 border border-indigo-500 rounded-xl shadow-2xl z-20"
+        className="absolute top-full mt-4 w-full min-w-[120px] bg-gray-800 border border-indigo-500 rounded-xl shadow-2xl z-40"
       >
         {options.map((k) => (
           <div
@@ -164,7 +164,7 @@ function App() {
     }
 
     try {
-      const res = await axios.post(`http://localhost:5000/api/recommend`, {
+      const res = await axios.post(`https://ecomm-recommender-backend.vercel.app/api/recommend`, {
         user_id: trimmedUserId,
         k: kValue,
       });
@@ -206,13 +206,13 @@ function App() {
         <div className="container mx-auto px-6 py-4 flex justify-between items-center rounded-xl ">
 
           <div className="flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgb(129 140 248)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-rabbit-icon lucide-rabbit"><path d="M13 16a3 3 0 0 1 2.24 5"/><path d="M18 12h.01"/><path d="M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3"/><path d="M20 8.54V4a2 2 0 1 0-4 0v3"/><path d="M7.612 12.524a3 3 0 1 0-1.6 4.3"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgb(129 140 248)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-rabbit-icon lucude-rabbit"><path d="M13 16a3 3 0 0 1 2.24 5"/><path d="M18 12h.01"/><path d="M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3"/><path d="M20 8.54V4a2 2 0 1 0-4 0v3"/><path d="M7.612 12.524a3 3 0 1 0-1.6 4.3"/></svg>
             <h1 className="text-2xl font-semibold text-white ml-2 font-grotesk">Rabbit</h1>
           </div>
 
 
           <a
-            href="https://github.com/SaurabhShisode"
+            href="https://github.com/SaurabhShisode/ecomm-recommender"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-300 hover:text-white flex items-center gap-2"
@@ -252,9 +252,9 @@ function App() {
           </p>
         </motion.div>
 
-        {/* --- INPUT FORM --- */}
+        
         <motion.div
-          className="max-w-3xl mx-auto p-2 bg-white bg-opacity-10 backdrop-blur-md rounded-full shadow-2xl"
+          className="max-w-3xl mx-auto p-2 bg-white bg-opacity-10 backdrop-blur-md rounded-full shadow-2xl relative z-30"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -268,9 +268,7 @@ function App() {
               placeholder="Enter user ID (e.g., 17)"
               className="font-poppins w-full px-5 py-3 text-black bg-transparent rounded-full placeholder-gray-400 text-lg focus:outline-none"
             />
-            
-            <CustomKDropdown kValue={kValue} setKValue={setKValue} />
-            
+
             {userId && (
               <button
                 onClick={handleClear}
@@ -280,6 +278,10 @@ function App() {
                 <XCircle className="w-5 h-5"/>
               </button>
             )}
+            
+            <CustomKDropdown kValue={kValue} setKValue={setKValue} />
+            
+            
 
             <button
               onClick={getRecs}
@@ -293,10 +295,9 @@ function App() {
           </div>
         </motion.div>
 
-        {/* --- RECOMMENDATIONS SECTION --- */}
-        <div className="mt-20 z-[-20]">
+        
+        <div className="mt-20">
           <AnimatePresence>
-            
             
 
             <motion.div
@@ -346,7 +347,6 @@ function App() {
         </div>
       </footer>
       
-      {/* --- RENDER CUSTOM NOTIFICATION --- */}
       <AnimatePresence>
         {notification.message && (
           <CustomNotification 
