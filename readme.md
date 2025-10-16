@@ -1,4 +1,4 @@
-```markdown
+
 # 🛍️ E-commerce Product Recommender
 
 ## 📘 Overview
@@ -204,4 +204,3 @@ npm test
 
 This project is licensed under the **MIT License**.  
 See the [LICENSE](./LICENSE) file for details.
-```
