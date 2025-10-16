@@ -1,140 +1,207 @@
-# E-commerce Product Recommender
+```markdown
+# 🛍️ E-commerce Product Recommender
 
-## Overview
-A full-stack e-commerce product recommender system built with React for the frontend and Express.js with Node.js for the backend. The project provides a seamless interface for users to receive personalized product recommendations and supports backend APIs for data processing, model inference, and serving recommendations.
+## 📘 Overview
+**E-commerce Product Recommender** is a full-stack web application that delivers personalized product recommendations using user interaction data and AI-generated explanations.
 
-Key goals:
-- Deliver personalized top-N product recommendations
-- Provide a responsive and user-friendly UI
-- Support scalable backend APIs for integration with other systems
+The system includes:
+- A **React** frontend for an interactive user experience  
+- A **Node.js + Express** backend with **PostgreSQL** database  
+- Integration with **Groq SDK** for generating natural-language explanations for recommendations  
 
-## Features
-- **Frontend**: 
-    - Built with React for a dynamic and interactive user experience
-    - Displays personalized recommendations and item-to-item suggestions
-    - Deployed at [Frontend Link](https://ecomm-recommender.vercel.app/)
-- **Backend**:
-    - RESTful APIs built with Express.js for handling recommendation requests
-    - Integration with a recommendation engine for model inference
-    - Data ingestion and preprocessing endpoints
-    - Deployed at [Backend Link](https://ecomm-recommender-backend.vercel.app/)
-- **Database**:
-    - Stores user interaction logs and product metadata
-- **Deployment**:
-    - Dockerized for easy deployment and scalability
+The project demonstrates how data-driven personalization and LLM-based contextual reasoning can enhance product discovery and user engagement.
 
-## Project Layout
-- `frontend/` — React application for the user interface
-    - `src/` — React components, pages, and utilities
-    - `public/` — Static assets
-- `backend/` — Express.js application for the API
-    - `routes/` — API endpoints
-    - `controllers/` — Business logic for handling requests
-    - `models/` — Database models and schema
-    - `services/` — Recommendation engine integration
-- `data/` — Raw and processed datasets
-- `configs/` — Configuration files for the backend
-- `Dockerfile` — Docker configuration for deployment
-- `README.MD` — Project documentation
+---
 
-## Installation
-### Prerequisites
-- Node.js 14+ and npm
+## 🚀 Key Features
+
+### 🧠 Smart Recommendations
+- Fetches recent user interactions from the database  
+- Determines the user’s top interest categories  
+- Recommends products from similar categories while avoiding duplicates  
+
+### 💬 AI-Generated Explanations
+- Uses **Groq LLaMA-3.1-8B** model to generate factual, category-based explanations  
+- Each recommendation includes a concise, impersonal reasoning statement  
+
+### 🖥️ Frontend
+- Built with **React.js** and **Tailwind CSS**  
+- Displays personalized recommendations in an elegant UI  
+- Hosted at: [Frontend Live Link](https://ecomm-recommender.vercel.app/)
+
+### ⚙️ Backend
+- RESTful APIs using **Express.js**  
+- PostgreSQL connection via `pg` and `pool`  
+- Integration with **Groq SDK** for LLM-based explanations  
+- Hosted at: [Backend Live Link](https://ecomm-recommender-backend.vercel.app/)
+
+### 🗄️ Database
+- Stores product details, metadata, and user interaction logs  
+- Designed to efficiently query recent activity and product categories  
+
+---
+
+## 🧩 Tech Stack
+
+| Layer         | Technology                  |
+|---------------|-----------------------------|
+| **Frontend**  | React.js, Tailwind CSS, Axios |
+| **Backend**   | Node.js, Express.js         |
+| **Database**  | PostgreSQL                 |
+| **AI Integration** | Groq SDK (LLaMA 3.1)  |
+| **Deployment**| Vercel (Frontend), Render/Other (Backend) |
+| **Containerization** | Docker              |
+
+---
+
+
+## ⚙️ Installation and Setup
+
+### 🧾 Prerequisites
+- Node.js (v14+)
+- npm or yarn
 - (Optional) Docker
 
-### Setup
-1. Clone the repository:
-     ```bash
-     git clone <repository-url>
-     cd E-commerce-Product-Recommender
-     ```
+---
 
-2. Install dependencies:
-     - Backend:
-         ```bash
-         cd backend
-         npm install
-         ```
-     - Frontend:
-         ```bash
-         cd frontend
-         npm install
-         ```
+### 🔧 1. Clone the Repository
+```bash
+git clone <repository-url>
+cd E-commerce-Product-Recommender
+```
 
-3. Configure environment variables:
-     - Create `.env` files in `backend/` and `frontend/` directories based on the provided `.env.example`.
+---
 
-4. Start the development servers:
-     - Backend:
-         ```bash
-         cd backend
-         npm run dev
-         ```
-     - Frontend:
-         ```bash
-         cd frontend
-         npm start
-         ```
+### 💻 2. Install Dependencies
 
-## Quick Start
-1. **Run the application**:
-     - Access the frontend at `http://localhost:3000`
-     - Backend APIs are available at `http://localhost:5000`
+**Backend:**
+```bash
+cd backend
+npm install
+```
 
-2. **API Endpoints**:
-     - `GET /api/recommendations?userId=<USER_ID>&k=10`
-         - Returns top-N recommendations for a user
-     - `GET /api/recommendations/item?itemId=<ITEM_ID>&k=10`
-         - Returns item-to-item recommendations
+**Frontend:**
+```bash
+cd frontend
+npm install
+```
 
-3. **Example Response**:
-     ```json
-     {
-             "userId": 123,
-             "recommendations": [
-                     { "itemId": 987, "score": 0.92 },
-                     { "itemId": 654, "score": 0.87 }
-             ]
-     }
-     ```
+---
 
-## Development & Testing
-- **Backend**:
-    - Run tests:
-        ```bash
-        cd backend
-        npm test
-        ```
-    - Linting:
-        ```bash
-        npm run lint
-        ```
-- **Frontend**:
-    - Run tests:
-        ```bash
-        cd frontend
-        npm test
-        ```
-    - Linting:
-        ```bash
-        npm run lint
-        ```
+### 🔑 3. Environment Variables
 
-## Deployment
-- **Docker**:
-    - Build and run the application:
-        ```bash
-        docker-compose up --build
-        ```
-    - Access the app at `https://ecomm-recommender.vercel.app/`
+Create a `.env` file inside the `backend/` directory:
+```plaintext
+DATABASE_URL=postgresql://<username>:<password>@localhost:5432/<database_name>
+GROQ_API_KEY=your_groq_api_key
+PORT=5000
+```
 
-## Troubleshooting
-- Ensure `.env` files are correctly configured.
-- If the frontend or backend fails to start, check for missing dependencies or port conflicts.
+Create a `.env` file inside the `frontend/` directory:
+```plaintext
+REACT_APP_API_URL=http://localhost:5000/api
+```
 
-## Contributing
-- Fork the repository, create a feature branch, and submit a pull request.
-- Follow the existing code style and include tests for new features.
+---
 
-## License
-Specify your license (e.g., MIT) in the `LICENSE` file.
+### 🧠 4. Start Development Servers
+
+**Backend:**
+```bash
+cd backend
+npm run dev
+```
+
+**Frontend:**
+```bash
+cd frontend
+npm start
+```
+
+Access:
+- Frontend → [http://localhost:3000](http://localhost:3000)
+- Backend → [http://localhost:5000](http://localhost:5000)
+
+---
+
+## 🔍 API Reference
+
+### **POST /api/recommendations**
+
+Generates top-N product recommendations for a given user.
+
+**Request Body:**
+```json
+{
+    "user_id": 123,
+    "k": 5
+}
+```
+
+**Response:**
+```json
+{
+    "recommendations": [
+        {
+            "product_id": 45,
+            "title": "Wireless Headphones",
+            "price": 1999,
+            "category": "Electronics",
+            "explanation": "Recommended because it aligns with your interest in high-quality audio devices."
+        }
+    ]
+}
+```
+
+**Possible Messages:**
+- `"No interactions found for this user."`
+- `"Could not determine user preferences."`
+- `"No new recommendations found in preferred categories."`
+
+---
+
+## 🧪 Development & Testing
+
+### Backend
+Run tests:
+```bash
+npm test
+```
+
+Linting:
+```bash
+npm run lint
+```
+
+### Frontend
+Run tests:
+```bash
+npm test
+```
+
+---
+
+## 🧰 Troubleshooting
+
+| Issue                     | Solution                                                          |
+|---------------------------|-------------------------------------------------------------------|
+| `Server error`            | Ensure database is running and `.env` variables are set correctly |
+| `Groq API Error`          | Verify `GROQ_API_KEY` and usage limits                            |
+| `Frontend not connecting` | Check `REACT_APP_API_URL` in `.env`                               |
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a new branch (`feature/your-feature`)
+3. Commit changes and open a pull request
+4. Follow the existing code style and structure
+
+---
+
+## 🪪 License
+
+This project is licensed under the **MIT License**.  
+See the [LICENSE](./LICENSE) file for details.
+```
