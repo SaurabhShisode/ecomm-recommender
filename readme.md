@@ -11,7 +11,12 @@ The system includes:
 
 The project demonstrates how data-driven personalization and LLM-based contextual reasoning can enhance product discovery and user engagement.
 
----
+
+## Watch Demo
+<a href="https://drive.google.com/file/d/1ZAQi_ydMAeYZ0ywycn6wD49XATqGfugQ/view?usp=sharing" target="_blank">
+  <img src="https://raw.githubusercontent.com/SaurabhShisode/ecomm-recommender/main/thumbnail.png" alt="Watch the video">
+</a>
+
 
 ## Key Features
 
