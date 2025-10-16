@@ -55,7 +55,6 @@ The project demonstrates how data-driven personalization and LLM-based contextua
 | **Database**  | PostgreSQL                 |
 | **AI Integration** | Groq SDK (LLaMA 3.1)  |
 | **Deployment**| Vercel (Frontend), Render/Other (Backend) |
-| **Containerization** | Docker              |
 
 ---
 
