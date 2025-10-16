@@ -29,7 +29,7 @@ The project demonstrates how data-driven personalization and LLM-based contextua
 - Displays personalized recommendations in an elegant UI  
 - Hosted at: [Frontend Live Link](https://ecomm-recommender.vercel.app/)
 
-### ⚙️ Backend
+### Backend
 - RESTful APIs using **Express.js**  
 - PostgreSQL connection via `pg` and `pool`  
 - Integration with **Groq SDK** for LLM-based explanations  
