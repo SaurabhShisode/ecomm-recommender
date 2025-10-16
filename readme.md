@@ -1,7 +1,7 @@
 
-# 🛍️ E-commerce Product Recommender
+# E-commerce Product Recommender
 
-## 📘 Overview
+## Overview
 **E-commerce Product Recommender** is a full-stack web application that delivers personalized product recommendations using user interaction data and AI-generated explanations.
 
 The system includes:
@@ -13,18 +13,18 @@ The project demonstrates how data-driven personalization and LLM-based contextua
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-### 🧠 Smart Recommendations
+### Smart Recommendations
 - Fetches recent user interactions from the database  
 - Determines the user’s top interest categories  
 - Recommends products from similar categories while avoiding duplicates  
 
-### 💬 AI-Generated Explanations
+### AI-Generated Explanations
 - Uses **Groq LLaMA-3.1-8B** model to generate factual, category-based explanations  
 - Each recommendation includes a concise, impersonal reasoning statement  
 
-### 🖥️ Frontend
+### Frontend
 - Built with **React.js** and **Tailwind CSS**  
 - Displays personalized recommendations in an elegant UI  
 - Hosted at: [Frontend Live Link](https://ecomm-recommender.vercel.app/)
@@ -35,13 +35,13 @@ The project demonstrates how data-driven personalization and LLM-based contextua
 - Integration with **Groq SDK** for LLM-based explanations  
 - Hosted at: [Backend Live Link](https://ecomm-recommender-backend.vercel.app/)
 
-### 🗄️ Database
+### Database
 - Stores product details, metadata, and user interaction logs  
 - Designed to efficiently query recent activity and product categories  
 
 ---
 
-## 🧩 Tech Stack
+## Tech Stack
 
 | Layer         | Technology                  |
 |---------------|-----------------------------|
@@ -55,16 +55,16 @@ The project demonstrates how data-driven personalization and LLM-based contextua
 ---
 
 
-## ⚙️ Installation and Setup
+## Installation and Setup
 
-### 🧾 Prerequisites
+### Prerequisites
 - Node.js (v14+)
 - npm or yarn
 - (Optional) Docker
 
 ---
 
-### 🔧 1. Clone the Repository
+### 1. Clone the Repository
 ```bash
 git clone <repository-url>
 cd E-commerce-Product-Recommender
@@ -72,7 +72,7 @@ cd E-commerce-Product-Recommender
 
 ---
 
-### 💻 2. Install Dependencies
+### 2. Install Dependencies
 
 **Backend:**
 ```bash
@@ -88,7 +88,7 @@ npm install
 
 ---
 
-### 🔑 3. Environment Variables
+### 3. Environment Variables
 
 Create a `.env` file inside the `backend/` directory:
 ```plaintext
@@ -104,7 +104,7 @@ REACT_APP_API_URL=http://localhost:5000/api
 
 ---
 
-### 🧠 4. Start Development Servers
+### 4. Start Development Servers
 
 **Backend:**
 ```bash
@@ -124,7 +124,7 @@ Access:
 
 ---
 
-## 🔍 API Reference
+## API Reference
 
 ### **POST /api/recommendations**
 
@@ -160,7 +160,7 @@ Generates top-N product recommendations for a given user.
 
 ---
 
-## 🧪 Development & Testing
+## Development & Testing
 
 ### Backend
 Run tests:
@@ -181,7 +181,7 @@ npm test
 
 ---
 
-## 🧰 Troubleshooting
+## Troubleshooting
 
 | Issue                     | Solution                                                          |
 |---------------------------|-------------------------------------------------------------------|
@@ -191,7 +191,7 @@ npm test
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a new branch (`feature/your-feature`)
